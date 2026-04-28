@@ -4,76 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terminal, GitHub & Claude Code — Quick Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f1117;
-      color: #e2e8f0;
+    :root {
+      --bg:        #FEFBF4;
+      --ink:       #1A1D2E;
+      --teal:      #3EE0C5;
+      --teal-dark: #2BA48F;
+      --teal-mid:  #35BAA6;
+      --ink-40:    rgba(26,29,46,0.40);
+      --ink-12:    rgba(26,29,46,0.12);
+      --ink-06:    rgba(26,29,46,0.06);
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    ::selection { background: var(--teal); color: var(--ink); }
+
+    html, body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Manrope', sans-serif;
+      -webkit-font-smoothing: antialiased;
       line-height: 1.6;
     }
 
+    /* ── HEADER ── */
     header {
-      background: linear-gradient(135deg, #1a1d2e 0%, #16213e 100%);
-      border-bottom: 1px solid #2d3748;
-      padding: 2.5rem 2rem;
+      background: var(--ink);
+      padding: 3rem 2rem 2.75rem;
       text-align: center;
     }
 
-    header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.4rem;
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
     }
+
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .logo-text {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    header h1 span { color: var(--teal); }
 
     header p {
-      color: #718096;
-      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
+    /* ── NAV ── */
     nav {
       display: flex;
       justify-content: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
-      padding: 1.25rem 2rem;
-      background: #13151f;
-      border-bottom: 1px solid #2d3748;
+      padding: 1rem 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--ink-12);
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
     nav a {
-      color: #63b3ed;
+      color: var(--ink);
       text-decoration: none;
-      font-size: 0.875rem;
-      padding: 0.35rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.35rem 0.9rem;
       border-radius: 9999px;
-      border: 1px solid #2d3748;
-      transition: all 0.2s;
+      border: 1.5px solid var(--ink-12);
+      transition: all 0.15s ease;
     }
 
     nav a:hover {
-      background: #2d3748;
-      color: #fff;
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--ink);
     }
 
+    /* ── MAIN ── */
     main {
-      max-width: 900px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem;
+      padding: 3rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 2rem;
     }
 
+    /* ── SECTION ── */
     section {
-      background: #1a1d2e;
-      border: 1px solid #2d3748;
-      border-radius: 12px;
+      background: #fff;
+      border: 1.5px solid var(--ink-12);
+      border-radius: 16px;
       overflow: hidden;
     }
 
@@ -81,19 +132,28 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      padding: 1.25rem 1.5rem;
-      background: #16213e;
-      border-bottom: 1px solid #2d3748;
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1.5px solid var(--ink-12);
+      background: var(--ink-06);
     }
 
-    .section-header .icon {
-      font-size: 1.4rem;
+    .section-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
     }
 
     .section-header h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
     }
 
     .section-body {
@@ -103,70 +163,65 @@
       gap: 1.5rem;
     }
 
+    /* ── GROUP LABEL ── */
     .group-label {
-      font-size: 0.7rem;
-      font-weight: 700;
+      font-size: 0.65rem;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #718096;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.12em;
+      color: var(--teal-dark);
+      margin-bottom: 0.6rem;
     }
 
-    .command-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    /* ── COMMAND ROWS ── */
+    .command-list { display: flex; flex-direction: column; }
 
     .command-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
-      align-items: start;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #2d3748;
+      align-items: center;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--ink-06);
     }
 
-    .command-row:last-child {
-      border-bottom: none;
-    }
+    .command-row:last-child { border-bottom: none; }
 
     code {
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 0.85rem;
-      color: #68d391;
-      background: #0f1117;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--ink);
+      background: var(--ink-06);
+      padding: 0.2rem 0.55rem;
+      border-radius: 5px;
       display: inline-block;
+      border: 1px solid var(--ink-12);
     }
 
     .comment {
-      color: #718096;
-      font-size: 0.85rem;
+      color: var(--ink-40);
+      font-size: 0.82rem;
+      font-weight: 500;
     }
 
-    .workflow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    /* ── WORKFLOW STEPS ── */
+    .workflow-steps { display: flex; flex-direction: column; }
 
     .step {
       display: flex;
       gap: 1rem;
       align-items: flex-start;
       padding: 0.75rem 0;
-      border-bottom: 1px solid #2d3748;
+      border-bottom: 1px solid var(--ink-06);
     }
 
     .step:last-child { border-bottom: none; }
 
     .step-num {
-      background: #3182ce;
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
+      background: var(--teal);
+      color: var(--ink);
+      font-size: 0.65rem;
+      font-weight: 800;
       width: 22px;
       height: 22px;
       border-radius: 50%;
@@ -174,87 +229,102 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
-    .step-content {
-      flex: 1;
-    }
+    .step-content { flex: 1; }
+    .step-content code { display: inline-block; margin-bottom: 0.2rem; }
+    .step-content .comment { display: block; font-size: 0.8rem; }
 
-    .step-content code {
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-
-    .step-content .comment {
-      font-size: 0.8rem;
-    }
-
+    /* ── CLAUDE TABLE ── */
     .claude-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
     }
 
     .claude-table th {
       text-align: left;
-      padding: 0.6rem 0.75rem;
-      background: #0f1117;
-      color: #718096;
-      font-size: 0.7rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--ink-06);
+      color: var(--teal-dark);
+      font-size: 0.65rem;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--ink-12);
     }
 
     .claude-table td {
-      padding: 0.6rem 0.75rem;
-      border-bottom: 1px solid #2d3748;
-      vertical-align: top;
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--ink-06);
+      vertical-align: middle;
     }
 
     .claude-table tr:last-child td { border-bottom: none; }
 
-    .claude-table td:first-child code { color: #f6ad55; }
-
+    /* ── EXAMPLES LIST ── */
     .examples-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .examples-list li {
       display: flex;
       align-items: flex-start;
       gap: 0.6rem;
-      font-size: 0.875rem;
-      color: #a0aec0;
+      font-size: 0.85rem;
+      color: var(--ink-40);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--ink-06);
     }
+
+    .examples-list li:last-child { border-bottom: none; }
 
     .examples-list li::before {
       content: "→";
-      color: #3182ce;
+      color: var(--teal-dark);
+      font-weight: 700;
       flex-shrink: 0;
     }
 
     .examples-list li em {
-      color: #e2e8f0;
-      font-style: italic;
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 500;
     }
 
+    /* ── FOOTER ── */
     footer {
+      background: var(--ink);
       text-align: center;
       padding: 2rem;
-      color: #4a5568;
-      font-size: 0.8rem;
-      border-top: 1px solid #2d3748;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    footer span { color: var(--teal); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .command-row { grid-template-columns: 1fr; gap: 0.25rem; }
+      main { padding: 2rem 1rem; }
+      header { padding: 2rem 1rem; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Terminal, GitHub & Claude Code</h1>
+  <div class="logo">
+    <div class="logo-dot"></div>
+    <span class="logo-text">Savas Labs</span>
+  </div>
+  <h1>Terminal, GitHub<br/>&amp; <span>Claude Code</span></h1>
   <p>Quick reference for Ian — everything you need to get started</p>
 </header>
 
@@ -271,7 +341,7 @@
   <!-- TERMINAL -->
   <section id="terminal">
     <div class="section-header">
-      <span class="icon">🖥️</span>
+      <div class="section-icon">🖥️</div>
       <h2>Terminal Basics</h2>
     </div>
     <div class="section-body">
@@ -306,7 +376,7 @@
   <!-- GIT -->
   <section id="git">
     <div class="section-header">
-      <span class="icon">🌿</span>
+      <div class="section-icon">🌿</div>
       <h2>Git</h2>
     </div>
     <div class="section-body">
@@ -346,7 +416,7 @@
   <!-- GITHUB CLI -->
   <section id="github-cli">
     <div class="section-header">
-      <span class="icon">🐙</span>
+      <div class="section-icon">🐙</div>
       <h2>GitHub CLI (gh)</h2>
     </div>
     <div class="section-body">
@@ -364,7 +434,7 @@
   <!-- CLAUDE CODE -->
   <section id="claude-code">
     <div class="section-header">
-      <span class="icon">🤖</span>
+      <div class="section-icon">🤖</div>
       <h2>Claude Code</h2>
     </div>
     <div class="section-body">
@@ -411,7 +481,7 @@
   <!-- DAILY WORKFLOW -->
   <section id="workflow">
     <div class="section-header">
-      <span class="icon">🔄</span>
+      <div class="section-icon">🔄</div>
       <h2>Typical Daily Workflow</h2>
     </div>
     <div class="section-body">
@@ -479,7 +549,7 @@
 </main>
 
 <footer>
-  Made for Ian Curran · Terminal, GitHub & Claude Code Quick Reference
+  <span>Savas Labs</span> · Terminal, GitHub & Claude Code Quick Reference
 </footer>
 
 </body>
