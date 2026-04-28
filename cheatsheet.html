@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terminal, GitHub & Claude Code — Quick Reference</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1d2e 0%, #16213e 100%);
+      border-bottom: 1px solid #2d3748;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    header p {
+      color: #718096;
+      font-size: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding: 1.25rem 2rem;
+      background: #13151f;
+      border-bottom: 1px solid #2d3748;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #63b3ed;
+      text-decoration: none;
+      font-size: 0.875rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      border: 1px solid #2d3748;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: #2d3748;
+      color: #fff;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    section {
+      background: #1a1d2e;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      background: #16213e;
+      border-bottom: 1px solid #2d3748;
+    }
+
+    .section-header .icon {
+      font-size: 1.4rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .section-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .group-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #718096;
+      margin-bottom: 0.5rem;
+    }
+
+    .command-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .command-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #2d3748;
+    }
+
+    .command-row:last-child {
+      border-bottom: none;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.85rem;
+      color: #68d391;
+      background: #0f1117;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .comment {
+      color: #718096;
+      font-size: 0.85rem;
+    }
+
+    .workflow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #2d3748;
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      background: #3182ce;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content code {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .step-content .comment {
+      font-size: 0.8rem;
+    }
+
+    .claude-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .claude-table th {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      background: #0f1117;
+      color: #718096;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .claude-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #2d3748;
+      vertical-align: top;
+    }
+
+    .claude-table tr:last-child td { border-bottom: none; }
+
+    .claude-table td:first-child code { color: #f6ad55; }
+
+    .examples-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .examples-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      color: #a0aec0;
+    }
+
+    .examples-list li::before {
+      content: "→";
+      color: #3182ce;
+      flex-shrink: 0;
+    }
+
+    .examples-list li em {
+      color: #e2e8f0;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #4a5568;
+      font-size: 0.8rem;
+      border-top: 1px solid #2d3748;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Terminal, GitHub & Claude Code</h1>
+  <p>Quick reference for Ian — everything you need to get started</p>
+</header>
+
+<nav>
+  <a href="#terminal">Terminal</a>
+  <a href="#git">Git</a>
+  <a href="#github-cli">GitHub CLI</a>
+  <a href="#claude-code">Claude Code</a>
+  <a href="#workflow">Daily Workflow</a>
+</nav>
+
+<main>
+
+  <!-- TERMINAL -->
+  <section id="terminal">
+    <div class="section-header">
+      <span class="icon">🖥️</span>
+      <h2>Terminal Basics</h2>
+    </div>
+    <div class="section-body">
+
+      <div>
+        <div class="group-label">Navigation</div>
+        <div class="command-list">
+          <div class="command-row"><code>pwd</code><span class="comment">Show your current folder location</span></div>
+          <div class="command-row"><code>ls</code><span class="comment">List files in current folder</span></div>
+          <div class="command-row"><code>ls -la</code><span class="comment">List all files with details (including hidden)</span></div>
+          <div class="command-row"><code>cd folder-name</code><span class="comment">Go into a folder</span></div>
+          <div class="command-row"><code>cd ..</code><span class="comment">Go up one folder</span></div>
+          <div class="command-row"><code>cd ~</code><span class="comment">Go to your home directory</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="group-label">Files & Folders</div>
+        <div class="command-list">
+          <div class="command-row"><code>mkdir my-project</code><span class="comment">Create a new folder</span></div>
+          <div class="command-row"><code>touch file.txt</code><span class="comment">Create a new empty file</span></div>
+          <div class="command-row"><code>cp file.txt copy.txt</code><span class="comment">Copy a file</span></div>
+          <div class="command-row"><code>mv file.txt new-name.txt</code><span class="comment">Rename or move a file</span></div>
+          <div class="command-row"><code>rm file.txt</code><span class="comment">Delete a file</span></div>
+          <div class="command-row"><code>open .</code><span class="comment">Open current folder in Finder</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GIT -->
+  <section id="git">
+    <div class="section-header">
+      <span class="icon">🌿</span>
+      <h2>Git</h2>
+    </div>
+    <div class="section-body">
+
+      <div>
+        <div class="group-label">Start or Connect a Repo</div>
+        <div class="command-list">
+          <div class="command-row"><code>git init</code><span class="comment">Start a new git repo in current folder</span></div>
+          <div class="command-row"><code>git clone &lt;url&gt;</code><span class="comment">Download a repo from GitHub</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="group-label">Everyday Workflow</div>
+        <div class="command-list">
+          <div class="command-row"><code>git status</code><span class="comment">See what files have changed</span></div>
+          <div class="command-row"><code>git add .</code><span class="comment">Stage all changed files</span></div>
+          <div class="command-row"><code>git add file.txt</code><span class="comment">Stage a specific file</span></div>
+          <div class="command-row"><code>git commit -m "message"</code><span class="comment">Save a snapshot with a description</span></div>
+          <div class="command-row"><code>git push</code><span class="comment">Upload commits to GitHub</span></div>
+          <div class="command-row"><code>git pull</code><span class="comment">Download latest changes from GitHub</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="group-label">Branches</div>
+        <div class="command-list">
+          <div class="command-row"><code>git checkout -b my-branch</code><span class="comment">Create and switch to a new branch</span></div>
+          <div class="command-row"><code>git checkout main</code><span class="comment">Switch back to main</span></div>
+          <div class="command-row"><code>git merge my-branch</code><span class="comment">Merge a branch into current branch</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GITHUB CLI -->
+  <section id="github-cli">
+    <div class="section-header">
+      <span class="icon">🐙</span>
+      <h2>GitHub CLI (gh)</h2>
+    </div>
+    <div class="section-body">
+      <div class="command-list">
+        <div class="command-row"><code>gh repo create</code><span class="comment">Create a new GitHub repo</span></div>
+        <div class="command-row"><code>gh repo clone owner/repo</code><span class="comment">Clone a repo from GitHub</span></div>
+        <div class="command-row"><code>gh pr create</code><span class="comment">Open a pull request</span></div>
+        <div class="command-row"><code>gh pr list</code><span class="comment">List open pull requests</span></div>
+        <div class="command-row"><code>gh issue list</code><span class="comment">List open issues</span></div>
+        <div class="command-row"><code>gh auth status</code><span class="comment">Check your GitHub login status</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLAUDE CODE -->
+  <section id="claude-code">
+    <div class="section-header">
+      <span class="icon">🤖</span>
+      <h2>Claude Code</h2>
+    </div>
+    <div class="section-body">
+
+      <div>
+        <div class="group-label">Starting Claude Code</div>
+        <div class="command-list">
+          <div class="command-row"><code>claude</code><span class="comment">Start Claude Code in current folder</span></div>
+          <div class="command-row"><code>claude "fix the bug in app.js"</code><span class="comment">Start with a specific instruction</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="group-label">Commands Inside Claude Code</div>
+        <table class="claude-table">
+          <thead>
+            <tr><th>Command</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>/help</code></td><td class="comment">Show all available commands</td></tr>
+            <tr><td><code>/clear</code></td><td class="comment">Clear the conversation and start fresh</td></tr>
+            <tr><td><code>/review</code></td><td class="comment">Review current branch changes</td></tr>
+            <tr><td><code>Ctrl + C</code></td><td class="comment">Cancel current action</td></tr>
+            <tr><td><code>Ctrl + D</code></td><td class="comment">Exit Claude Code</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="group-label">Things You Can Ask Claude Code</div>
+        <ul class="examples-list">
+          <li><em>"Create a new React component for a login form"</em></li>
+          <li><em>"Explain what this function does"</em></li>
+          <li><em>"Fix the error in this file"</em></li>
+          <li><em>"Commit my changes with a good message"</em></li>
+          <li><em>"Create a pull request for this branch"</em></li>
+          <li><em>"What files changed in this project recently?"</em></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DAILY WORKFLOW -->
+  <section id="workflow">
+    <div class="section-header">
+      <span class="icon">🔄</span>
+      <h2>Typical Daily Workflow</h2>
+    </div>
+    <div class="section-body">
+      <div class="workflow-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <code>cd my-project</code>
+            <span class="comment">Navigate to your project folder</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <code>git pull</code>
+            <span class="comment">Get the latest changes from GitHub</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <code>git checkout -b my-feature</code>
+            <span class="comment">Create a new branch for your work</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <code>claude</code>
+            <span class="comment">Open Claude Code to help you build</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <code>git add .</code>
+            <span class="comment">Stage your changes</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <code>git commit -m "add feature"</code>
+            <span class="comment">Save a snapshot with a description</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <code>git push</code>
+            <span class="comment">Upload your branch to GitHub</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">8</div>
+          <div class="step-content">
+            <code>gh pr create</code>
+            <span class="comment">Open a pull request for review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Made for Ian Curran · Terminal, GitHub & Claude Code Quick Reference
+</footer>
+
+</body>
+</html>
