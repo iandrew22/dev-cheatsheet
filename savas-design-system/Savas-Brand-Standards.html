@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Savas Labs — Brand Standards</title>
+<style>:root {
+  --sv-color-paper-white: #FFFFFF;
+  --sv-color-paper-warm: #FEFBF4;
+  --sv-color-paper-cream: #FBF3E4;
+  --sv-color-neutral-ink: #1A1D2E;
+  --sv-color-neutral-graphite: #3D4256;
+  --sv-color-neutral-mute: #8C8E9E;
+  --sv-color-accent-mint: #3EE0C5;
+  --sv-color-accent-mint-ink: #2BA48F;
+  --sv-color-accent-mint-text: #216963;
+  --sv-color-accent-coral: #FF5A42;
+  --sv-color-accent-coral-text: #B5301A;
+  --sv-color-accent-marigold: #FFB020;
+  --sv-color-accent-lavender: #C77DFF;
+  --sv-color-accent-ojo-blue: #00A6FB;
+  --sv-color-line-default: rgba(26,29,46,0.14);
+  --sv-color-line-strong: rgba(26,29,46,0.28);
+  --sv-color-line-subtle: rgba(26,29,46,0.12);
+  --sv-color-line-wash: rgba(26,29,46,0.06);
+  --sv-font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sv-font-serif: 'PT Serif', Georgia, 'Times New Roman', serif;
+  --sv-font-mono: 'SF Mono', SFMono-Regular, Consolas, Menlo, monospace;
+  --sv-radius-xs: 4px;
+  --sv-radius-sm: 8px;
+  --sv-radius-md: 10px;
+  --sv-radius-lg: 16px;
+  --sv-radius-full: 9999px;
+  --sv-space-1: 4px;
+  --sv-space-2: 8px;
+  --sv-space-3: 12px;
+  --sv-space-4: 16px;
+  --sv-space-6: 24px;
+  --sv-space-8: 32px;
+  --sv-space-12: 48px;
+  --sv-space-16: 64px;
+  --sv-shadow-1: 0 1px 3px rgba(26,29,46,0.06), 0 4px 16px rgba(26,29,46,0.05);
+  --sv-shadow-2: 0 8px 30px rgba(26,29,46,0.10), 0 2px 6px rgba(26,29,46,0.05);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--sv-color-paper-white);color:var(--sv-color-neutral-graphite);font-family:var(--sv-font-sans);-webkit-font-smoothing:antialiased;line-height:1.6}
+::selection{background:var(--sv-color-accent-mint);color:var(--sv-color-neutral-ink)}
+header{background:var(--sv-color-neutral-ink);padding:4rem 2rem 3.5rem}
+.hi{max-width:1100px;margin:0 auto}
+.logo{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--sv-color-accent-mint)}
+.logo span{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sv-color-accent-mint)}
+h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.1}
+h1 em{font-family:var(--sv-font-serif);font-weight:400;color:var(--sv-color-accent-coral);letter-spacing:-.02em}
+header p{color:rgba(255,255,255,.55);margin-top:.9rem;font-weight:500;font-size:1.05rem}
+nav{display:flex;gap:.5rem;flex-wrap:wrap;padding:1rem 2rem;border-bottom:1px solid var(--sv-color-line-subtle);background:var(--sv-color-paper-warm);position:sticky;top:0;z-index:5}
+nav a{color:var(--sv-color-neutral-ink);text-decoration:none;font-size:.8rem;font-weight:600;padding:.35rem .9rem;border-radius:9999px;border:1.5px solid var(--sv-color-line-subtle)}
+nav a:hover{background:var(--sv-color-accent-mint);border-color:var(--sv-color-accent-mint)}
+main{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem}
+section{margin-bottom:4.5rem;scroll-margin-top:5rem}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sv-color-neutral-mute);margin-bottom:.4rem}
+h2{font-size:2.4rem;font-weight:700;letter-spacing:-.025em;line-height:1.1;color:var(--sv-color-neutral-ink);margin-bottom:.6rem;padding-bottom:1rem;border-bottom:3px solid var(--sv-color-accent-mint)}
+.lead{max-width:680px;margin:1.2rem 0 2rem;font-size:1.05rem}
+.label{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sv-color-accent-mint-text);margin:1.8rem 0 .7rem}
+.chips{display:flex;flex-wrap:wrap;gap:1.1rem}
+.chip{width:150px}
+.sw{height:84px;border-radius:12px;margin-bottom:.5rem}
+.hex{font-family:var(--sv-font-mono);font-size:.75rem;color:var(--sv-color-neutral-ink)}
+.nm{font-weight:700;font-size:.85rem;color:var(--sv-color-neutral-ink)}
+.ds{font-size:.72rem;color:var(--sv-color-neutral-mute);line-height:1.35;margin-top:.15rem}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:1rem}
+th{text-align:left;padding:.55rem .75rem;background:var(--sv-color-line-wash);color:var(--sv-color-accent-mint-text);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+td{padding:.55rem .75rem;border-bottom:1px solid var(--sv-color-line-wash);vertical-align:middle}
+.demo{display:inline-flex;width:30px;height:24px;border-radius:5px;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;margin-right:.5rem;border:1px solid var(--sv-color-line-subtle)}
+.pill{font-size:.7rem;font-weight:800;padding:.15rem .6rem;border-radius:9999px}
+.ok{background:var(--sv-color-accent-mint);color:var(--sv-color-neutral-ink)}
+.warn{background:var(--sv-color-accent-marigold);color:var(--sv-color-neutral-ink)}
+.bad{background:var(--sv-color-accent-coral);color:var(--sv-color-neutral-ink)}
+.trow{display:grid;grid-template-columns:260px 1fr;gap:1.5rem;align-items:center;padding:1.1rem 0;border-bottom:1px solid var(--sv-color-line-wash)}
+.tmeta b{display:block;font-size:.85rem;color:var(--sv-color-neutral-ink)}
+.tmeta span{font-family:var(--sv-font-mono);font-size:.68rem;color:var(--sv-color-neutral-mute)}
+.rads{display:flex;gap:2rem;flex-wrap:wrap}
+.rad{display:flex;flex-direction:column;gap:.2rem;font-size:.8rem}
+.rad span{font-family:var(--sv-font-mono);font-size:.7rem;color:var(--sv-color-neutral-mute)}
+.rbox{width:84px;height:84px;background:var(--sv-color-line-wash);border:2px solid var(--sv-color-neutral-ink);margin-bottom:.4rem}
+.srow{display:flex;align-items:center;gap:1rem;font-family:var(--sv-font-mono);font-size:.72rem;padding:.25rem 0}
+.srow span:first-child{width:80px}
+.sbar{height:14px;background:var(--sv-color-accent-mint);border-radius:3px}
+.demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.card{background:#fff;border:1.5px solid var(--sv-color-line-subtle);border-radius:16px;overflow:hidden}
+.card-h{display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;border-bottom:1.5px solid var(--sv-color-line-subtle);background:var(--sv-color-line-wash)}
+.card-i{width:32px;height:32px;border-radius:8px;background:var(--sv-color-accent-mint)}
+.card-h b{font-size:1rem;color:var(--sv-color-neutral-ink)}
+.card-b{padding:1.25rem;display:flex;flex-direction:column;gap:.9rem;font-size:.9rem}
+code{font-family:var(--sv-font-mono);font-size:.82rem;background:var(--sv-color-line-wash);padding:.2rem .55rem;border-radius:4px;border:1px solid var(--sv-color-line-subtle);color:var(--sv-color-neutral-ink)}
+.btn{display:inline-block;font-weight:700;font-size:.85rem;padding:.6rem 1.3rem;border-radius:9999px;text-decoration:none;border:1.5px solid var(--sv-color-neutral-ink);margin-right:.5rem}
+.btn.p{background:var(--sv-color-accent-mint);border-color:var(--sv-color-accent-mint);color:var(--sv-color-neutral-ink)}
+.btn.d{background:var(--sv-color-neutral-ink);color:var(--sv-color-accent-mint)}
+.btn.o{color:var(--sv-color-neutral-ink)}
+.num{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--sv-color-accent-mint);color:var(--sv-color-neutral-ink);font-size:.65rem;font-weight:800;align-items:center;justify-content:center;margin-right:.5rem}
+.flourish{font-family:var(--sv-font-serif);font-style:italic;color:var(--sv-color-accent-coral-text);font-size:1.12em}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.rule{border-left:4px solid var(--sv-color-accent-mint);padding:.2rem 0 .2rem 1rem}
+.rule.no{border-color:var(--sv-color-accent-coral)}
+.rule b{display:block;color:var(--sv-color-neutral-ink);margin-bottom:.2rem}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1rem}
+.flow div{background:var(--sv-color-paper-warm);border:1.5px solid var(--sv-color-line-subtle);border-radius:16px;padding:1.2rem}
+.flow b{display:block;color:var(--sv-color-neutral-ink);margin:.4rem 0 .2rem}
+footer{background:var(--sv-color-neutral-ink);color:rgba(255,255,255,.4);text-align:center;padding:2rem;font-size:.78rem}
+footer span{color:var(--sv-color-accent-mint)}
+@media(max-width:700px){.trow{grid-template-columns:1fr}}
+@media print{nav{position:static}section{break-inside:avoid-page}}
+</style></head><body>
+<header><div class="hi"><div class="logo"><div class="dot"></div><span>Savas Labs</span></div>
+<h1>Brand Standards for the web, <em>in one place</em></h1>
+<p>Color, type, shape and components. Generated from tokens.json, the same file Figma Variables sync with.</p></div></header>
+<nav><a href="#colors">Color</a><a href="#contrast">Contrast</a><a href="#type">Typography</a><a href="#shape">Shape &amp; space</a><a href="#components">Components</a><a href="#rules">Usage rules</a><a href="#workflow">Figma workflow</a></nav>
+<main>
+
+<section id="colors"><p class="eyebrow">01</p><h2>Color palette</h2>
+<p class="lead">Ink and white carry the page. Mint is the signature accent; coral is a spice used for emphasis. Each accent has a darker <code>-text</code> sibling for small text.</p>
+<p class="label">Paper</p><div class="chips"><div class="chip"><div class="sw" style="background:#FFFFFF;border:1.5px solid var(--sv-color-line-default);"></div><div class="hex">#FFFFFF</div><div class="nm">White</div><div class="ds">Default page and slide background</div></div><div class="chip"><div class="sw" style="background:#FEFBF4;border:1.5px solid var(--sv-color-line-default);"></div><div class="hex">#FEFBF4</div><div class="nm">Warm</div><div class="ds">Website warm paper</div></div><div class="chip"><div class="sw" style="background:#FBF3E4;border:1.5px solid var(--sv-color-line-default);"></div><div class="hex">#FBF3E4</div><div class="nm">Cream</div><div class="ds">Callouts and quiet panels</div></div></div>
+<p class="label">Ink &amp; neutrals</p><div class="chips"><div class="chip"><div class="sw" style="background:#1A1D2E;"></div><div class="hex">#1A1D2E</div><div class="nm">Ink</div><div class="ds">Primary text, dark surfaces</div></div><div class="chip"><div class="sw" style="background:#3D4256;"></div><div class="hex">#3D4256</div><div class="nm">Graphite</div><div class="ds">Body copy</div></div><div class="chip"><div class="sw" style="background:#8C8E9E;"></div><div class="hex">#8C8E9E</div><div class="nm">Mute</div><div class="ds">Captions, eyebrows. Large text only on white</div></div></div>
+<p class="label">Accents</p><div class="chips"><div class="chip"><div class="sw" style="background:#3EE0C5;"></div><div class="hex">#3EE0C5</div><div class="nm">Mint</div><div class="ds">Signature accent. Fills, highlights, selection</div></div><div class="chip"><div class="sw" style="background:#2BA48F;"></div><div class="hex">#2BA48F</div><div class="nm">Mint Ink</div><div class="ds">Rules and large text only (2.98:1 on white)</div></div><div class="chip"><div class="sw" style="background:#216963;"></div><div class="hex">#216963</div><div class="nm">Mint Text</div><div class="ds">Mint dark enough for small text (AA)</div></div><div class="chip"><div class="sw" style="background:#FF5A42;"></div><div class="hex">#FF5A42</div><div class="nm">Coral</div><div class="ds">Flourish, emphasis. Fills</div></div><div class="chip"><div class="sw" style="background:#B5301A;"></div><div class="hex">#B5301A</div><div class="nm">Coral Text</div><div class="ds">Coral dark enough for small text (AA)</div></div><div class="chip"><div class="sw" style="background:#FFB020;"></div><div class="hex">#FFB020</div><div class="nm">Marigold</div><div class="ds"></div></div><div class="chip"><div class="sw" style="background:#C77DFF;"></div><div class="hex">#C77DFF</div><div class="nm">Lavender</div><div class="ds"></div></div><div class="chip"><div class="sw" style="background:#00A6FB;"></div><div class="hex">#00A6FB</div><div class="nm">Ojo Blue</div><div class="ds">Ojo product accent</div></div></div>
+<p class="label">Lines (ink at opacity)</p><div class="chips"><div class="chip"><div class="sw" style="background:#1A1D2E;"></div><div class="hex">#1A1D2E</div><div class="nm">Wash</div><div class="ds">ink @ 6% (table headers, code chips)</div></div><div class="chip"><div class="sw" style="background:#1A1D2E;"></div><div class="hex">#1A1D2E</div><div class="nm">Subtle</div><div class="ds">ink @ 12% (cheatsheet borders)</div></div><div class="chip"><div class="sw" style="background:#1A1D2E;"></div><div class="hex">#1A1D2E</div><div class="nm">Default</div><div class="ds">ink @ 14%</div></div><div class="chip"><div class="sw" style="background:#1A1D2E;"></div><div class="hex">#1A1D2E</div><div class="nm">Strong</div><div class="ds">ink @ 28%</div></div></div>
+</section>
+
+<section id="contrast"><p class="eyebrow">02</p><h2>Contrast</h2>
+<p class="lead">Computed from the token values (WCAG 2.x). Anything marked AA Large is for headings 24px+ or rules only.</p>
+<table><tr><th>Pair</th><th>Foreground / Background</th><th>Ratio</th><th>Grade</th></tr><tr><td><span class="demo" style="background:#FFFFFF;color:#1A1D2E">Aa</span> Ink on White</td><td>#1A1D2E / #FFFFFF</td><td>16.68:1</td><td><span class="pill ok">AAA</span></td></tr><tr><td><span class="demo" style="background:#FFFFFF;color:#3D4256">Aa</span> Graphite on White</td><td>#3D4256 / #FFFFFF</td><td>9.94:1</td><td><span class="pill ok">AAA</span></td></tr><tr><td><span class="demo" style="background:#FFFFFF;color:#8C8E9E">Aa</span> Mute on White</td><td>#8C8E9E / #FFFFFF</td><td>3.24:1</td><td><span class="pill warn">AA Large</span></td></tr><tr><td><span class="demo" style="background:#FFFFFF;color:#216963">Aa</span> Mint-text on White</td><td>#216963 / #FFFFFF</td><td>6.43:1</td><td><span class="pill ok">AA</span></td></tr><tr><td><span class="demo" style="background:#FFFFFF;color:#B5301A">Aa</span> Coral-text on White</td><td>#B5301A / #FFFFFF</td><td>6.17:1</td><td><span class="pill ok">AA</span></td></tr><tr><td><span class="demo" style="background:#FFFFFF;color:#2BA48F">Aa</span> Mint-ink on White</td><td>#2BA48F / #FFFFFF</td><td>3.08:1</td><td><span class="pill warn">AA Large</span></td></tr><tr><td><span class="demo" style="background:#3EE0C5;color:#1A1D2E">Aa</span> Ink on Mint</td><td>#1A1D2E / #3EE0C5</td><td>10.07:1</td><td><span class="pill ok">AAA</span></td></tr><tr><td><span class="demo" style="background:#FF5A42;color:#1A1D2E">Aa</span> Ink on Coral</td><td>#1A1D2E / #FF5A42</td><td>5.40:1</td><td><span class="pill ok">AA</span></td></tr><tr><td><span class="demo" style="background:#FFB020;color:#1A1D2E">Aa</span> Ink on Marigold</td><td>#1A1D2E / #FFB020</td><td>9.12:1</td><td><span class="pill ok">AAA</span></td></tr><tr><td><span class="demo" style="background:#C77DFF;color:#1A1D2E">Aa</span> Ink on Lavender</td><td>#1A1D2E / #C77DFF</td><td>6.20:1</td><td><span class="pill ok">AA</span></td></tr><tr><td><span class="demo" style="background:#1A1D2E;color:#3EE0C5">Aa</span> Mint on Ink</td><td>#3EE0C5 / #1A1D2E</td><td>10.07:1</td><td><span class="pill ok">AAA</span></td></tr><tr><td><span class="demo" style="background:#1A1D2E;color:#FFFFFF">Aa</span> White on Ink</td><td>#FFFFFF / #1A1D2E</td><td>16.68:1</td><td><span class="pill ok">AAA</span></td></tr></table></section>
+
+<section id="type"><p class="eyebrow">03</p><h2>Typography</h2>
+<p class="lead">Manrope is the workhorse. PT Serif Italic is a deliberate flourish in coral, used for one word or phrase at a time. SF Mono is for code only.</p>
+<div class="trow"><div class="tmeta"><b>display</b><span>Manrope · 38px · 800 · LH 1.2 · -0.02em</span></div><div style="font-family:var(--sv-font-sans);font-size:38px;font-weight:800;line-height:1.2;letter-spacing:-0.02em;color:#1A1D2E">Digital that works</div></div><div class="trow"><div class="tmeta"><b>h2</b><span>Manrope · 38px · 700 · LH 1.1 · -0.025em</span></div><div style="font-family:var(--sv-font-sans);font-size:38px;font-weight:700;line-height:1.1;letter-spacing:-0.025em;color:#1A1D2E">Section heading</div></div><div class="trow"><div class="tmeta"><b>h3</b><span>Manrope · 24px · 600 · LH 1.1 · -0.015em</span></div><div style="font-family:var(--sv-font-sans);font-size:24px;font-weight:600;line-height:1.1;letter-spacing:-0.015em;color:#1A1D2E">Subsection heading</div></div><div class="trow"><div class="tmeta"><b>h4</b><span>Manrope · 16px · 700 · LH 1.3 · -0.01em</span></div><div style="font-family:var(--sv-font-sans);font-size:16px;font-weight:700;line-height:1.3;letter-spacing:-0.01em;color:#1A1D2E">Card title</div></div><div class="trow"><div class="tmeta"><b>body</b><span>Manrope · 17px · 400 · LH 1.55 · 0em</span></div><div style="font-family:var(--sv-font-sans);font-size:17px;font-weight:400;line-height:1.55;letter-spacing:0em;color:#3D4256">Body copy is set in Manrope, graphite on white, at a comfortable reading measure.</div></div><div class="trow"><div class="tmeta"><b>body-sm</b><span>Manrope · 14px · 500 · LH 1.6 · 0em</span></div><div style="font-family:var(--sv-font-sans);font-size:14px;font-weight:500;line-height:1.6;letter-spacing:0em;color:#3D4256">Secondary copy and table cells.</div></div><div class="trow"><div class="tmeta"><b>eyebrow</b><span>Manrope · 12.5px · 700 · LH 1.2 · 0.18em</span></div><div style="font-family:var(--sv-font-sans);font-size:12.5px;font-weight:700;line-height:1.2;letter-spacing:0.18em;text-transform:uppercase;color:#1A1D2E">Small caps eyebrow</div></div><div class="trow"><div class="tmeta"><b>label</b><span>Manrope · 10.5px · 800 · LH 1.2 · 0.12em</span></div><div style="font-family:var(--sv-font-sans);font-size:10.5px;font-weight:800;line-height:1.2;letter-spacing:0.12em;text-transform:uppercase;color:#1A1D2E">Group label</div></div><div class="trow"><div class="tmeta"><b>flourish</b><span>PT Serif · 19px · 400 · LH 1.3 · -0.02em</span></div><div style="font-family:var(--sv-font-serif);font-size:19px;font-weight:400;line-height:1.3;letter-spacing:-0.02em;font-style:italic;color:#B5301A">with a little serif italic</div></div><div class="trow"><div class="tmeta"><b>code</b><span>SF Mono · 13px · 400 · LH 1.5 · 0em</span></div><div style="font-family:var(--sv-font-mono);font-size:13px;font-weight:400;line-height:1.5;letter-spacing:0em;color:#1A1D2E">git push origin main</div></div></section>
+
+<section id="shape"><p class="eyebrow">04</p><h2>Radius, spacing &amp; shadow</h2>
+<p class="label">Corner radius</p><div class="rads"><div class="rad"><div class="rbox" style="border-radius:4px"></div><b>xs</b><span>4px</span></div><div class="rad"><div class="rbox" style="border-radius:8px"></div><b>sm</b><span>8px</span></div><div class="rad"><div class="rbox" style="border-radius:10px"></div><b>md</b><span>10px</span></div><div class="rad"><div class="rbox" style="border-radius:16px"></div><b>lg</b><span>16px</span></div><div class="rad"><div class="rbox" style="border-radius:9999px"></div><b>full</b><span>9999px</span></div></div>
+<p class="label">Spacing scale</p><div class="srow"><span>space-1</span><div class="sbar" style="width:4px"></div><span>4px</span></div><div class="srow"><span>space-2</span><div class="sbar" style="width:8px"></div><span>8px</span></div><div class="srow"><span>space-3</span><div class="sbar" style="width:12px"></div><span>12px</span></div><div class="srow"><span>space-4</span><div class="sbar" style="width:16px"></div><span>16px</span></div><div class="srow"><span>space-6</span><div class="sbar" style="width:24px"></div><span>24px</span></div><div class="srow"><span>space-8</span><div class="sbar" style="width:32px"></div><span>32px</span></div><div class="srow"><span>space-12</span><div class="sbar" style="width:48px"></div><span>48px</span></div><div class="srow"><span>space-16</span><div class="sbar" style="width:64px"></div><span>64px</span></div>
+<p class="label">Elevation</p><div class="chips">
+<div class="chip"><div class="sw" style="box-shadow:var(--sv-shadow-1);border:1px solid var(--sv-color-line-wash)"></div><div class="nm">shadow-1</div><div class="ds">Resting cards</div></div>
+<div class="chip"><div class="sw" style="box-shadow:var(--sv-shadow-2);border:1px solid var(--sv-color-line-wash)"></div><div class="nm">shadow-2</div><div class="ds">Raised, hover</div></div></div></section>
+
+<section id="components"><p class="eyebrow">05</p><h2>Components</h2>
+<p class="lead">The building blocks used in the cheatsheet, decks and reports. Each should exist as a Figma component with the same name.</p>
+<div class="demos">
+<div class="card"><div class="card-h"><div class="card-i"></div><b>Section card</b></div><div class="card-b"><span class="label" style="margin:0">Group label</span><p>16px radius, 1.5px subtle border, wash header with a mint icon tile.</p><div><code>git status</code> <code>claude</code></div></div></div>
+<div class="card"><div class="card-h"><div class="card-i" style="background:var(--sv-color-accent-coral)"></div><b>Buttons</b></div><div class="card-b"><div><a class="btn p">Primary</a><a class="btn d">Dark</a><a class="btn o">Outline</a></div><p>Pill shaped, Manrope 700. One primary per view.</p></div></div>
+<div class="card"><div class="card-h"><div class="card-i" style="background:var(--sv-color-accent-lavender)"></div><b>Steps &amp; flourish</b></div><div class="card-b"><p><span class="num">1</span>Numbered step marker</p><p><span class="num">2</span>Ship it <span class="flourish">with confidence</span></p></div></div>
+</div></section>
+
+<section id="rules"><p class="eyebrow">06</p><h2>Usage rules</h2>
+<div class="rules">
+<div class="rule"><b>Do</b>Use ink text on mint, coral, marigold and lavender fills. Never white.</div>
+<div class="rule"><b>Do</b>Use <code>mint-text</code> / <code>coral-text</code> when an accent colors body-size text.</div>
+<div class="rule"><b>Do</b>Keep one serif-italic flourish per heading, in coral.</div>
+<div class="rule no"><b>Don't</b>Set small text in <code>mint</code>, <code>mint-ink</code> or <code>mute</code> on white. They fail AA below large size.</div>
+<div class="rule no"><b>Don't</b>Introduce new hexes. Add a token to tokens.json first.</div>
+<div class="rule no"><b>Don't</b>Stack more than two accents in one component.</div>
+</div></section>
+
+<section id="workflow"><p class="eyebrow">07</p><h2>Figma ⇄ code workflow</h2>
+<p class="lead">Tokens and components sync both ways. Page layouts go design → code only.</p>
+<div class="flow">
+<div><span class="num">1</span><b>Edit in Figma</b>Designers change Variables and components in the Savas Design System file.</div>
+<div><span class="num">2</span><b>Export tokens</b>Variables export to tokens.json (Tokens Studio or the Variables API) and land in a PR.</div>
+<div><span class="num">3</span><b>Build</b><code>python3 build.py</code> regenerates tokens.css and this page. The site consumes tokens.css.</div>
+<div><span class="num">4</span><b>Review &amp; ship</b>Preview deploy, designer sign-off, merge to production.</div>
+</div></section>
+
+</main><footer><span>Savas Labs</span> · Brand Standards · generated from tokens.json</footer></body></html>
