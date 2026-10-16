@@ -13,7 +13,7 @@ Figma file: https://www.figma.com/design/miniCJNlVc3Pw4w9o4mw1F (Savas Labs team
 
 - **Variables:** Primitives (18 colors), Semantic (18 aliases), Radius (5), Spacing (8). Each variable's WEB code syntax is the matching `--sv-*` property in `tokens.css`.
 - **Styles:** `Savas/*` text styles (10) and `Savas/shadow-1|2` effect styles.
-- **Pages:** Foundations (specimen), Components (Button, Code chip, Step marker, Section card).
+- **Pages:** Foundations (specimen), Components (Button, Code chip, Step marker, Section card), Deck Kit (inventory of the slide-deck elements with a Keep / Change / Drop review column, 17 `Deck/*` text styles, and a type ramp).
 
 ## Loop
 
